@@ -30,5 +30,5 @@ func (service *UserLoginService) UserLogin(c *gin.Context) serializer.Response {
 	data := make(map[string]interface{}, 0)
 	data["access_token"] = token
 
-	return serializer.ResponseFormat(200, "登入成功", make([]string, 0))
+	return serializer.ResponseFormat(200, "登入成功", data)
 }
