@@ -1,7 +1,9 @@
 package server
 
 import (
-	"hotel/api"
+	"hotel/admin"
+	"hotel/admin/user"
+
 	"hotel/middleware"
 
 	"github.com/gin-gonic/gin"
@@ -15,17 +17,14 @@ func NewRouter() *gin.Engine {
 	r.Use(middleware.Cors())
 
 	// 路由
-	v1 := r.Group("/api/v1")
+	Admin := r.Group("/admin")
 	{
-		v1.POST("ping", api.Ping)
-
-	
-
+		Admin.POST("ping", admin.Ping)
 		// 需要登录保护的
-		auth := v1.Group("")
+		auth := Admin.Group("")
 		auth.Use(middleware.AuthRequired())
 		{
-			
+			Admin.POST("login", user.UserLogin)
 		}
 	}
 	return r

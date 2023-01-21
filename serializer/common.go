@@ -33,6 +33,15 @@ const (
 	CodeParamErr = 40001
 )
 
+func ResponseFormat(code int, msg string, data interface{}) Response {
+
+	res := Response{}
+	res.Code = code
+	res.Data = data
+	res.Msg = msg
+	return res
+}
+
 // CheckLogin 检查登录
 func CheckLogin() Response {
 	return Response{
