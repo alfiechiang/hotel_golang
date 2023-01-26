@@ -10,5 +10,5 @@ func main() {
 	conf.Init()
 
 	r := server.NewRouter()
-	r.Run(":6000")
+	r.Run(":3000")
 }

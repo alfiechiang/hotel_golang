@@ -33,6 +33,35 @@ const (
 	CodeParamErr = 40001
 )
 
+type PageListResponse struct {
+	Data        interface{} `json:"data"`
+	CurrentPage int         `json:"current_page"`
+	LastPage    int         `json:"last_page"`
+	PageSize    int         `json:"page_size"`
+	Total       int64       `json:"total"`
+}
+
+func PageListFormat(currentPage, pageSize int, total int64, data interface{}) PageListResponse {
+
+	lastPage := total / int64(pageSize)
+	if lastPage%int64(pageSize) > 0 {
+		lastPage++
+	}
+
+	if lastPage <= 0 {
+		lastPage++
+	}
+
+	return PageListResponse{
+		Data:        data,
+		CurrentPage: currentPage,
+		LastPage:    int(lastPage),
+		PageSize:    pageSize,
+		Total:       total,
+	}
+
+}
+
 func ResponseFormat(code int, msg string, data interface{}) Response {
 
 	res := Response{}

@@ -13,4 +13,5 @@ func main() {
 	godotenv.Load("../../.env")
 	model.Database(os.Getenv("MYSQL_DSN"))
 	mock.MockUser()
+	mock.MockRoomType()
 }

@@ -2,6 +2,7 @@ package server
 
 import (
 	"hotel/admin"
+	"hotel/admin/room"
 	"hotel/admin/user"
 
 	"hotel/middleware"
@@ -25,6 +26,8 @@ func NewRouter() *gin.Engine {
 		auth.Use(middleware.AuthRequired())
 		{
 			Admin.POST("login", user.UserLogin)
+			Admin.GET("roomtype", room.RoomTypeList)
+
 		}
 	}
 	return r
