@@ -13,8 +13,8 @@ func EditRoomType(c *gin.Context) {
 	var service room.EditRoomTypeService
 	if err := c.ShouldBind(&service); err == nil {
 
-		roomID, _ := strconv.Atoi(c.Param("roomID"))
-		service.RoomID=uint(roomID)
+		typeID, _ := strconv.Atoi(c.Param("typeID"))
+		service.TypeID = uint(typeID)
 		res := service.EditRoomType()
 		c.JSON(200, res)
 	} else {

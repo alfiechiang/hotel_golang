@@ -12,8 +12,8 @@ func UpdateRoomType(c *gin.Context) {
 
 	var service room.UpdateRoomTypeService
 	if err := c.ShouldBind(&service); err == nil {
-		roomID, _ := strconv.Atoi(c.Param("roomID"))
-		service.RoomID = uint(roomID)
+		typeID, _ := strconv.Atoi(c.Param("typeID"))
+		service.TypeID = uint(typeID)
 		res := service.UpdateRoomType()
 		c.JSON(200, res)
 	} else {

@@ -2,7 +2,7 @@ package model
 
 type RoomType struct {
 	ID     uint   `gorm:"primarykey"`
-	RoomID uint   `json:"roomID"`
+	TypeID uint   `json:"typeID"`
 	Name   string `json:"name"`
 	Price  uint   `json:"price"`
 	BedNum uint8  `json:"bed_num"`
