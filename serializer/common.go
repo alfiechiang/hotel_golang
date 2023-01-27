@@ -71,6 +71,16 @@ func ResponseFormat(code int, msg string, data interface{}) Response {
 	return res
 }
 
+func Success() Response {
+	res := Response{
+		Code: 200,
+		Msg:  "請求成功",
+		Data: make([]string, 0),
+	}
+
+	return res
+}
+
 // CheckLogin 检查登录
 func CheckLogin() Response {
 	return Response{

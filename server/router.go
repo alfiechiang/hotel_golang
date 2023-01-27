@@ -27,7 +27,9 @@ func NewRouter() *gin.Engine {
 		{
 			Admin.POST("login", user.UserLogin)
 			Admin.GET("roomtype", room.RoomTypeList)
-
+			Admin.POST("roomtype", room.CreateRoomType)
+			Admin.GET(":roomID/roomtype", room.EditRoomType)
+			Admin.PUT("roomtype/:roomID", room.UpdateRoomType)
 		}
 	}
 	return r
