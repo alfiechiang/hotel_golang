@@ -5,6 +5,8 @@ import (
 	"hotel/admin/room"
 	"hotel/admin/user"
 
+	"hotel/admin/upload"
+
 	"hotel/middleware"
 
 	"github.com/gin-gonic/gin"
@@ -30,6 +32,8 @@ func NewRouter() *gin.Engine {
 			Admin.POST("roomtype", room.CreateRoomType)
 			Admin.GET(":typeID/roomtype", room.EditRoomType)
 			Admin.PUT("roomtype/:typeID", room.UpdateRoomType)
+
+			Admin.POST("upload", upload.UploadImage)
 		}
 	}
 	return r

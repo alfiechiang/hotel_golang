@@ -3,6 +3,7 @@ package main
 import (
 	"hotel/conf"
 	"hotel/server"
+	"net/http"
 )
 
 func main() {
@@ -10,5 +11,7 @@ func main() {
 	conf.Init()
 
 	r := server.NewRouter()
+	r.StaticFS("/img", http.Dir("./img"))
 	r.Run(":3000")
+
 }
