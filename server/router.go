@@ -30,10 +30,12 @@ func NewRouter() *gin.Engine {
 			Admin.POST("login", user.UserLogin)
 			Admin.GET("roomtype", room.RoomTypeList)
 			Admin.POST("roomtype", room.CreateRoomType)
+
 			Admin.GET(":typeID/roomtype", room.EditRoomType)
 			Admin.PUT("roomtype/:typeID", room.UpdateRoomType)
 
 			Admin.POST("upload", upload.UploadImage)
+			Admin.POST("upload/roomtype_img", upload.UploadTypeRoomImg)
 		}
 	}
 	return r
