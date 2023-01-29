@@ -13,7 +13,8 @@ type UploadImageService struct {
 }
 
 type UploadImageResponse struct {
-	ImageUrl string `json:"image_url"`
+	ImgUrl string `json:"img_url"`
+	ImgName string `json:"img_name"`
 }
 
 func (service *UploadImageService) UploadImage(c *gin.Context) serializer.Response {
@@ -32,7 +33,8 @@ func (service *UploadImageService) UploadImage(c *gin.Context) serializer.Respon
 	}
 
 	res := UploadImageResponse{
-		ImageUrl: os.Getenv("DOMAIN") + "/img/" + filename,
+		ImgUrl: os.Getenv("DOMAIN") + "/img/" + filename,
+		ImgName: filename,
 	}
 
 	return serializer.ResponseFormat(200, "請求成功", res)
