@@ -14,4 +14,5 @@ func main() {
 	model.Database(os.Getenv("MYSQL_DSN"))
 	mock.MockUser()
 	mock.MockRoomType()
+	mock.MockRoom()
 }
